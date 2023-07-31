@@ -4,8 +4,7 @@ public class StringPalindromeCheckingService {
             return false;
         if (checkedString.length() == 1 || checkedString.length() == 0)
             return true;
-        return checkedString.charAt(0) == checkedString.charAt(checkedString.length() - 1)
-                &&
-                (checkedString.length() <= 3 || execute(checkedString.substring(1, checkedString.length() - 1)));
+        boolean isFirstCharEqualsLast = checkedString.charAt(0) == checkedString.charAt(checkedString.length() - 1);
+        return isFirstCharEqualsLast && (checkedString.length() <= 3 || execute(checkedString.substring(1, checkedString.length() - 1)));
     }
 }
