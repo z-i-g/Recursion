@@ -9,19 +9,21 @@ public class SecondMaxNumberOfListFindingService {
         if (list == null || list.isEmpty() || list.size() == 1)
             throw new RuntimeException("List is empty or null or contains one element");
 
-        if (list.size() == 2)
-            return Math.min(list.get(0), list.get(1));
+        if (iterateIndex == 1) {
+            maxElement = Math.max(list.get(0), list.get(1));
+            secondMaxElement = Math.min(list.get(0), list.get(1));
+        }
 
         if (iterateIndex + 1 >= list.size())
             return Math.min(maxElement, secondMaxElement);
+
+        if (secondMaxElement <= list.get(iterateIndex + 1))
+            secondMaxElement = list.get(iterateIndex + 1);
 
         if (maxElement <= list.get(iterateIndex + 1)) {
             secondMaxElement = maxElement;
             maxElement = list.get(iterateIndex + 1);
         }
-
-        if (secondMaxElement <= list.get(iterateIndex + 1))
-            secondMaxElement = list.get(iterateIndex + 1);
 
         return executeRecursively(list, maxElement, secondMaxElement, iterateIndex + 1);
     }
