@@ -13,7 +13,7 @@ public class SecondMaxNumberOfListFindingService {
 
     private static int executeRecursively(List<Integer> list, int maxElement, int secondMaxElement, int iterateIndex) {
         if (iterateIndex + 1 >= list.size())
-            return Math.min(maxElement, secondMaxElement);
+            return secondMaxElement;
 
         if (secondMaxElement <= list.get(iterateIndex + 1))
             secondMaxElement = list.get(iterateIndex + 1);
