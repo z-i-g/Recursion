@@ -43,4 +43,19 @@ class SecondMaxNumberOfListFindingServiceTest {
     void whenListContainsSeveralElementsAndTwoIdenticalMaximum_thenResult() {
         assertEquals(5, SecondMaxNumberOfListFindingService.execute(Arrays.asList(3, 5, 1, 5)));
     }
+
+    @Test
+    void whenListContainsSeveralNegativeElements_thenResult() {
+        assertEquals(-3, SecondMaxNumberOfListFindingService.execute(Arrays.asList(-3, -4, -1, -5)));
+    }
+
+    @Test
+    void whenListContainsSeveralNegativeElementsAndTwoIdenticalMaximum_thenResult() {
+        assertEquals(-4, SecondMaxNumberOfListFindingService.execute(Arrays.asList(-4, -4, -1, -5)));
+    }
+
+    @Test
+    void whenListContainsSeveralNegativeAndPositiveElements_thenResult() {
+        assertEquals(-2, SecondMaxNumberOfListFindingService.execute(Arrays.asList(-4, -2, 0)));
+    }
 }

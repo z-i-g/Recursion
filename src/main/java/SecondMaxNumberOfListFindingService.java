@@ -2,18 +2,16 @@ import java.util.List;
 
 public class SecondMaxNumberOfListFindingService {
     public static int execute(List<Integer> list) {
-        return executeRecursively(list, 0, 0, 1);
-    }
-
-    private static int executeRecursively(List<Integer> list, int maxElement, int secondMaxElement, int iterateIndex) {
         if (list == null || list.isEmpty() || list.size() == 1)
             throw new RuntimeException("List is empty or null or contains one element");
 
-        if (iterateIndex == 1) {
-            maxElement = Math.max(list.get(0), list.get(1));
-            secondMaxElement = Math.min(list.get(0), list.get(1));
-        }
+        int maxElement = Math.max(list.get(0), list.get(1));
+        int secondMaxElement = Math.min(list.get(0), list.get(1));
 
+        return executeRecursively(list, maxElement, secondMaxElement, 1);
+    }
+
+    private static int executeRecursively(List<Integer> list, int maxElement, int secondMaxElement, int iterateIndex) {
         if (iterateIndex + 1 >= list.size())
             return Math.min(maxElement, secondMaxElement);
 
